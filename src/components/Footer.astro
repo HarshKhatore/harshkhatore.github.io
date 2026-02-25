@@ -2,26 +2,26 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="relative py-8 px-6 border-t border-neon-cyan/10">
+<footer class="relative py-8 px-6 border-t border-light-200 dark:border-neon-cyan/10">
   <div class="max-w-6xl mx-auto">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <!-- Left -->
-      <div class="font-mono text-xs text-gray-600">
-        <span class="text-neon-cyan/40">&lt;</span>
+      <div class="font-mono text-xs text-light-400 dark:text-gray-600">
+        <span class="text-neon-blue/40 dark:text-neon-cyan/40">&lt;</span>
         <span>Built by Harsh Khatore</span>
-        <span class="text-neon-cyan/40">/&gt;</span>
+        <span class="text-neon-blue/40 dark:text-neon-cyan/40">/&gt;</span>
       </div>
 
       <!-- Center -->
-      <div class="font-mono text-xs text-gray-700">
+      <div class="font-mono text-xs text-light-400 dark:text-gray-700">
         Designed & Built with
-        <span class="text-neon-cyan">Astro</span>
+        <span class="text-neon-blue dark:text-neon-cyan">Astro</span>
         +
         <span class="text-neon-purple">TailwindCSS</span>
       </div>
 
       <!-- Right -->
-      <div class="font-mono text-xs text-gray-700">
+      <div class="font-mono text-xs text-light-400 dark:text-gray-700">
         &copy; {currentYear} All rights reserved.
       </div>
     </div>

@@ -64,8 +64,8 @@ const colorMap: Record<string, { border: string; hoverBorder: string; bg: string
   <div class="max-w-6xl mx-auto">
     <!-- Section header -->
     <div class="flex items-center gap-4 mb-16">
-      <span class="font-mono text-neon-cyan text-sm">03.</span>
-      <h2 class="text-3xl md:text-4xl font-bold">Beyond Code</h2>
+      <span class="font-mono text-neon-blue dark:text-neon-cyan text-sm">03.</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-light-800 dark:text-white">Beyond Code</h2>
       <div class="neon-line flex-1 max-w-xs"></div>
     </div>
 
@@ -73,14 +73,14 @@ const colorMap: Record<string, { border: string; hoverBorder: string; bg: string
       {items.map((item) => {
         const c = colorMap[item.color];
         return (
-          <div class={`bg-dark-700/30 border ${c.border} rounded-xl p-6 ${c.hoverBorder} transition-all duration-300 group`}>
+          <div class={`bg-light-100 dark:bg-dark-700/30 border ${c.border} rounded-xl p-6 ${c.hoverBorder} transition-all duration-300 group`}>
             <div class={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center mb-4`}>
               <svg class={`w-5 h-5 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconMap[item.icon]}></path>
               </svg>
             </div>
-            <h3 class={`text-lg font-bold text-white mb-2 ${c.hoverText} transition-colors`}>{item.title}</h3>
-            <p class="text-gray-400 text-sm mb-4">{item.description}</p>
+            <h3 class={`text-lg font-bold text-light-800 dark:text-white mb-2 ${c.hoverText} transition-colors`}>{item.title}</h3>
+            <p class="text-light-500 dark:text-gray-400 text-sm mb-4">{item.description}</p>
             <div class="flex flex-wrap gap-2">
               {item.tags.map((tag) => (
                 <span class={`px-2 py-1 text-xs font-mono rounded ${c.tagBg} border ${c.tagBorder} ${c.text}`}>
@@ -94,10 +94,10 @@ const colorMap: Record<string, { border: string; hoverBorder: string; bg: string
     </div>
 
     <!-- Flexible note -->
-    <div class="mt-8 bg-dark-700/20 border-glow rounded-xl p-6">
+    <div class="mt-8 bg-light-100 dark:bg-dark-700/20 border-glow rounded-xl p-6">
       <div class="font-mono text-sm">
         <span class="text-neon-purple">// </span>
-        <span class="text-gray-500">This section is a work in progress. More coming soon...</span>
+        <span class="text-light-400 dark:text-gray-500">This section is a work in progress. More coming soon...</span>
       </div>
     </div>
   </div>
