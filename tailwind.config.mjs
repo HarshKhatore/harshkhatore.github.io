@@ -4,17 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        neon: {
-          cyan: '#00f0ff',
-          purple: '#b400ff',
-          pink: '#ff00aa',
-          blue: '#0066ff',
-        },
+        phosphor: '#00ff41',
+        amber: '#ffb000',
+        danger: '#ff3333',
         dark: {
-          900: '#030308',
-          800: '#0a0a14',
-          700: '#10101e',
-          600: '#181828',
+          950: '#050505',
+          900: '#0a0a0a',
+          800: '#111111',
+          700: '#1a1a1a',
+          600: '#222222',
+          500: '#2a2a2a',
         },
       },
       fontFamily: {
@@ -22,36 +21,31 @@ export default {
         sans: ['Inter Variable', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
-        'grid-fade': 'grid-fade 3s ease-in-out infinite alternate',
-        'float': 'float 6s ease-in-out infinite',
-        'scanline': 'scanline 8s linear infinite',
-        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+        'blink': 'blink 1s step-end infinite',
+        'scanline': 'scanline 6s linear infinite',
+        'flicker': 'flicker 0.15s infinite',
       },
       keyframes: {
-        'glow-pulse': {
-          '0%': { opacity: '0.4', filter: 'brightness(1)' },
-          '100%': { opacity: '1', filter: 'brightness(1.3)' },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' },
         },
-        'grid-fade': {
-          '0%': { opacity: '0.03' },
-          '100%': { opacity: '0.08' },
-        },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        'blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         },
         'scanline': {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100vh)' },
         },
-        'typing': {
-          'from': { width: '0' },
-          'to': { width: '100%' },
-        },
-        'blink-caret': {
-          'from, to': { borderColor: 'transparent' },
-          '50%': { borderColor: '#00f0ff' },
+        'flicker': {
+          '0%': { opacity: '0.97' },
+          '5%': { opacity: '0.95' },
+          '10%': { opacity: '0.98' },
+          '15%': { opacity: '0.96' },
+          '20%': { opacity: '0.99' },
+          '100%': { opacity: '0.98' },
         },
       },
     },

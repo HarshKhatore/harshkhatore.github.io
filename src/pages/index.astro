@@ -4,19 +4,40 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Experience from '../components/Experience.astro';
+import Patents from '../components/Patents.astro';
 import BeyondCode from '../components/BeyondCode.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Harsh Khatore — Software Engineer">
+<Layout title="Harsh Khatore — Mission Control">
   <Navbar />
   <main>
     <Hero />
-    <About />
-    <Experience />
-    <BeyondCode />
-    <Contact />
+
+    <!-- Bento Grid Dashboard -->
+    <section class="px-4 md:px-6 py-2 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Row 1: About (1 col) + Experience (2 cols) -->
+        <div class="lg:col-span-1">
+          <About />
+        </div>
+        <div class="lg:col-span-2">
+          <Experience />
+        </div>
+
+        <!-- Row 2: Patents (1 col) + Beyond Code (1 col) + Contact (1 col) -->
+        <div class="lg:col-span-1">
+          <Patents />
+        </div>
+        <div class="lg:col-span-1">
+          <BeyondCode />
+        </div>
+        <div class="lg:col-span-1">
+          <Contact />
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>

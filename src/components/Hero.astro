@@ -2,100 +2,54 @@
 
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-  <!-- Radial glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-neon-cyan/5 blur-[120px] pointer-events-none"></div>
-  <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-neon-purple/5 blur-[100px] pointer-events-none animate-float"></div>
-
-  <!-- Floating particles -->
-  <div class="absolute inset-0 pointer-events-none" id="particles"></div>
-
-  <div class="relative z-10 text-center max-w-4xl mx-auto">
-    <!-- Terminal-style intro -->
-    <div class="animate-fade-in-up">
-      <div class="inline-flex items-center gap-2 bg-dark-700/50 border-glow rounded-full px-4 py-2 mb-8 font-mono text-xs text-neon-cyan/80">
-        <span class="w-2 h-2 bg-neon-cyan rounded-full animate-glow-pulse"></span>
-        <span>system.online</span>
-        <span class="text-gray-600">—</span>
-        <span class="text-gray-500">v1.0.0</span>
+<section class="px-4 md:px-6 pt-6 pb-2 max-w-7xl mx-auto">
+  <div class="card rounded-lg overflow-hidden">
+    <div class="card-header">
+      <span class="indicator"></span>
+      <span>System Identity</span>
+      <span class="ml-auto text-dark-600">PID 001</span>
+    </div>
+    <div class="card-body">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-dark-500 mb-2">// operator</p>
+          <h1 class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-none">
+            Harsh <span class="text-phosphor glow-green">Khatore</span>
+          </h1>
+          <p class="mt-3 text-sm text-dark-500">
+            <span class="text-amber">$</span> role <span class="text-dark-600">=</span> <span class="text-phosphor/80">"Software Engineer"</span>
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-[10px] uppercase tracking-widest text-dark-500">
+          <div class="flex items-center gap-1.5 px-3 py-1.5 bg-dark-800 border border-dark-700 rounded">
+            <span class="w-1.5 h-1.5 rounded-full bg-phosphor/60"></span>
+            Available
+          </div>
+          <div class="flex items-center gap-1.5 px-3 py-1.5 bg-dark-800 border border-dark-700 rounded">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber/60"></span>
+            India
+          </div>
+          <div class="flex items-center gap-1.5 px-3 py-1.5 bg-dark-800 border border-dark-700 rounded">
+            <span class="text-dark-600">&#9650;</span>
+            <span id="uptime-counter" class="tabular-nums">00:00:00</span>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Name -->
-    <h1 class="animate-fade-in-up animate-delay-100">
-      <span class="block font-mono text-sm md:text-base text-neon-cyan/60 mb-3 tracking-widest uppercase">// initializing</span>
-      <span class="block text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-        <span class="text-white">Harsh</span>
-        <span class="text-neon-cyan text-glow"> Khatore</span>
-      </span>
-    </h1>
-
-    <!-- Title -->
-    <div class="animate-fade-in-up animate-delay-200 mt-6">
-      <p class="font-mono text-lg md:text-xl text-gray-400">
-        <span class="text-neon-purple">const</span>
-        <span class="text-white"> role</span>
-        <span class="text-neon-cyan"> = </span>
-        <span class="text-neon-pink">"</span><span class="text-green-400">Software Engineer</span><span class="text-neon-pink">"</span>
-        <span class="text-gray-600">;</span>
-      </p>
-    </div>
-
-    <!-- Subtitle -->
-    <div class="animate-fade-in-up animate-delay-300 mt-6">
-      <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-        Building the future, one line of code at a time.
-        <br class="hidden md:block" />
-        Crafting elegant solutions to complex problems.
-      </p>
-    </div>
-
-    <!-- CTA Buttons -->
-    <div class="animate-fade-in-up animate-delay-400 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#projects" class="group relative px-8 py-3 font-mono text-sm overflow-hidden rounded-lg">
-        <div class="absolute inset-0 bg-neon-cyan/10 border border-neon-cyan/30 rounded-lg group-hover:bg-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300"></div>
-        <span class="relative text-neon-cyan group-hover:text-white transition-colors">
-          <span class="text-gray-500 group-hover:text-neon-cyan">~/</span>view_projects
-        </span>
-      </a>
-      <a href="#contact" class="group relative px-8 py-3 font-mono text-sm overflow-hidden rounded-lg">
-        <div class="absolute inset-0 bg-neon-purple/10 border border-neon-purple/30 rounded-lg group-hover:bg-neon-purple/20 group-hover:border-neon-purple/50 transition-all duration-300"></div>
-        <span class="relative text-neon-purple group-hover:text-white transition-colors">
-          <span class="text-gray-500 group-hover:text-neon-purple">~/</span>contact_me
-        </span>
-      </a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="animate-fade-in-up animate-delay-600 mt-20">
-      <a href="#about" class="inline-flex flex-col items-center gap-2 text-gray-600 hover:text-neon-cyan transition-colors group">
-        <span class="font-mono text-xs tracking-wider">SCROLL</span>
-        <div class="w-px h-8 bg-gradient-to-b from-neon-cyan/50 to-transparent group-hover:h-12 transition-all"></div>
-      </a>
     </div>
   </div>
 </section>
 
 <script>
-  // Simple particle effect
-  const container = document.getElementById('particles');
-  if (container) {
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      const size = Math.random() * 2 + 1;
-      particle.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        background: ${Math.random() > 0.5 ? '#00f0ff' : '#b400ff'};
-        border-radius: 50%;
-        top: ${Math.random() * 100}%;
-        left: ${Math.random() * 100}%;
-        opacity: ${Math.random() * 0.4 + 0.1};
-        animation: float ${Math.random() * 6 + 4}s ease-in-out infinite;
-        animation-delay: ${Math.random() * 4}s;
-      `;
-      container.appendChild(particle);
-    }
+  // Session uptime counter
+  const start = Date.now();
+  function updateUptime() {
+    const elapsed = Math.floor((Date.now() - start) / 1000);
+    const h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+    const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+    const s = String(elapsed % 60).padStart(2, '0');
+    const el = document.getElementById('uptime-counter');
+    if (el) el.textContent = `${h}:${m}:${s}`;
   }
+  updateUptime();
+  setInterval(updateUptime, 1000);
 </script>
