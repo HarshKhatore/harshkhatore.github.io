@@ -11,7 +11,7 @@ const { title, description = 'Harsh Khatore — Software Engineer. Building the 
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,14 +25,29 @@ const { title, description = 'Harsh Khatore — Software Engineer. Building the 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
-    <!-- Scanline overlay -->
-    <div class="pointer-events-none fixed inset-0 z-50 opacity-[0.03]">
+  <body class="bg-light-50 dark:bg-dark-900 text-dark-800 dark:text-white font-sans antialiased overflow-x-hidden transition-colors duration-300">
+    <!-- Theme initialization (inline to prevent FOUC) -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          // Default to dark
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Scanline overlay (dark only) -->
+    <div class="pointer-events-none fixed inset-0 z-50 opacity-0 dark:opacity-[0.03] transition-opacity duration-300">
       <div class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,240,255,0.1)_2px,rgba(0,240,255,0.1)_4px)]"></div>
     </div>
 
-    <!-- Grid background -->
-    <div class="pointer-events-none fixed inset-0 z-0 animate-grid-fade"
+    <!-- Grid background (dark only) -->
+    <div class="pointer-events-none fixed inset-0 z-0 animate-grid-fade opacity-0 dark:opacity-100 transition-opacity duration-300"
       style="background-image: linear-gradient(rgba(0,240,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,0.05) 1px, transparent 1px); background-size: 60px 60px;">
     </div>
 
@@ -43,6 +58,11 @@ const { title, description = 'Harsh Khatore — Software Engineer. Building the 
       ::selection {
         background: rgba(0, 240, 255, 0.3);
         color: #fff;
+      }
+
+      html:not(.dark) ::selection {
+        background: rgba(0, 102, 255, 0.2);
+        color: #1e293b;
       }
 
       ::-webkit-scrollbar {
@@ -59,34 +79,66 @@ const { title, description = 'Harsh Khatore — Software Engineer. Building the 
         background: #00f0ff66;
       }
 
+      html:not(.dark) ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      html:not(.dark) ::-webkit-scrollbar-thumb {
+        background: #94a3b844;
+      }
+      html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+        background: #64748b66;
+      }
+
       html {
         scrollbar-color: #00f0ff33 #030308;
         scrollbar-width: thin;
       }
+      html:not(.dark) {
+        scrollbar-color: #94a3b844 #f1f5f9;
+      }
 
-      .text-glow {
+      .dark .text-glow {
         text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
       }
+      html:not(.dark) .text-glow {
+        text-shadow: none;
+      }
 
-      .text-glow-purple {
+      .dark .text-glow-purple {
         text-shadow: 0 0 10px rgba(180, 0, 255, 0.5), 0 0 40px rgba(180, 0, 255, 0.2);
       }
+      html:not(.dark) .text-glow-purple {
+        text-shadow: none;
+      }
 
-      .box-glow {
+      .dark .box-glow {
         box-shadow: 0 0 15px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
       }
+      html:not(.dark) .box-glow {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
 
-      .box-glow-purple {
+      .dark .box-glow-purple {
         box-shadow: 0 0 15px rgba(180, 0, 255, 0.15), inset 0 0 15px rgba(180, 0, 255, 0.05);
       }
-
-      .border-glow {
-        border: 1px solid rgba(0, 240, 255, 0.2);
+      html:not(.dark) .box-glow-purple {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       }
 
-      .neon-line {
+      .dark .border-glow {
+        border: 1px solid rgba(0, 240, 255, 0.2);
+      }
+      html:not(.dark) .border-glow {
+        border: 1px solid rgba(0, 102, 255, 0.15);
+      }
+
+      .dark .neon-line {
         height: 1px;
         background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+      }
+      html:not(.dark) .neon-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #0066ff, transparent);
       }
 
       @keyframes fade-in-up {
