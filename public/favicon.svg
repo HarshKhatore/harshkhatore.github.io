@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#030308"/>
+  <rect x="4" y="4" width="120" height="120" rx="12" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.3"/>
+  <text x="64" y="80" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="64" fill="#00f0ff">
+    HK
+  </text>
+  <line x1="20" y1="96" x2="108" y2="96" stroke="#b400ff" stroke-width="2" opacity="0.5"/>
+</svg>

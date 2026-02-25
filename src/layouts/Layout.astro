@@ -1,0 +1,116 @@
+---
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Harsh Khatore — Software Engineer. Building the future, one line at a time.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Harsh Khatore" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
+    <!-- Scanline overlay -->
+    <div class="pointer-events-none fixed inset-0 z-50 opacity-[0.03]">
+      <div class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,240,255,0.1)_2px,rgba(0,240,255,0.1)_4px)]"></div>
+    </div>
+
+    <!-- Grid background -->
+    <div class="pointer-events-none fixed inset-0 z-0 animate-grid-fade"
+      style="background-image: linear-gradient(rgba(0,240,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,0.05) 1px, transparent 1px); background-size: 60px 60px;">
+    </div>
+
+    <slot />
+
+    <!-- Global styles -->
+    <style is:global>
+      ::selection {
+        background: rgba(0, 240, 255, 0.3);
+        color: #fff;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030308;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #00f0ff33;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00f0ff66;
+      }
+
+      html {
+        scrollbar-color: #00f0ff33 #030308;
+        scrollbar-width: thin;
+      }
+
+      .text-glow {
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
+      }
+
+      .text-glow-purple {
+        text-shadow: 0 0 10px rgba(180, 0, 255, 0.5), 0 0 40px rgba(180, 0, 255, 0.2);
+      }
+
+      .box-glow {
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
+      }
+
+      .box-glow-purple {
+        box-shadow: 0 0 15px rgba(180, 0, 255, 0.15), inset 0 0 15px rgba(180, 0, 255, 0.05);
+      }
+
+      .border-glow {
+        border: 1px solid rgba(0, 240, 255, 0.2);
+      }
+
+      .neon-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-delay-100 { animation-delay: 0.1s; }
+      .animate-delay-200 { animation-delay: 0.2s; }
+      .animate-delay-300 { animation-delay: 0.3s; }
+      .animate-delay-400 { animation-delay: 0.4s; }
+      .animate-delay-500 { animation-delay: 0.5s; }
+      .animate-delay-600 { animation-delay: 0.6s; }
+    </style>
+  </body>
+</html>
